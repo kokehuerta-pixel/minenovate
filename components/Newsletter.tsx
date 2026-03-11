@@ -62,7 +62,7 @@ export default function Newsletter() {
                   onSubmit={handleSubmit}
                   className="group relative"
                 >
-                  <div className="relative flex items-center bg-white/5 rounded-full p-1 border border-white/10 transition-all duration-500 hover:border-white/20 hover:shadow-2xl hover:shadow-white/5 focus-within:border-white/30 backdrop-blur-sm">
+                  <div className="relative flex flex-col sm:flex-row items-stretch sm:items-center bg-white/5 rounded-3xl sm:rounded-full p-1 border border-white/10 transition-all duration-500 hover:border-white/20 hover:shadow-2xl hover:shadow-white/5 focus-within:border-white/30 backdrop-blur-sm gap-4 sm:gap-0">
                     <input
                       type="email"
                       value={email}
@@ -70,14 +70,14 @@ export default function Newsletter() {
                       placeholder="Tu email..."
                       disabled={status === 'submitting'}
                       required
-                      className="flex-1 bg-transparent px-6 py-4 text-lg text-white placeholder:text-white/30 focus:outline-none disabled:opacity-50"
+                      className="w-full bg-transparent px-6 py-4 text-lg text-white placeholder:text-white/30 focus:outline-none disabled:opacity-50"
                     />
                     <button
                       type="submit"
                       disabled={status === 'submitting'}
-                      className="bg-white text-navy px-8 py-4 rounded-full font-sans font-bold flex items-center gap-2 hover:bg-cream hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:scale-100"
+                      className="bg-white text-navy px-8 py-4 rounded-2xl sm:rounded-full font-sans font-bold flex items-center justify-center gap-2 hover:bg-cream hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:scale-100"
                     >
-                      {status === 'submitting' ? 'Enviando...' : 'Enviar'} 
+                      <span>{status === 'submitting' ? 'Enviando...' : 'Enviar'}</span>
                       <ArrowRight className={`w-5 h-5 ${status === 'submitting' ? 'animate-pulse' : ''}`} />
                     </button>
                   </div>

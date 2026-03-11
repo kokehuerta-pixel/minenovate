@@ -8,7 +8,6 @@ import { motion } from 'framer-motion';
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const heroImageRef = useRef<HTMLDivElement>(null);
   
@@ -52,7 +51,7 @@ export default function Hero() {
         '-=1'
       )
       .fromTo(
-        [subtitleRef.current, formRef.current],
+        formRef.current,
         { y: 30, opacity: 0 },
         {
           y: 0,
@@ -101,6 +100,7 @@ export default function Hero() {
               src="/images/Gemini_Generated_Image_o6g41go6g41go6g4.png"
               alt="Minenovate Podcast Team"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-contain"
               priority
             />
@@ -125,13 +125,7 @@ export default function Hero() {
             <span className="font-serif italic font-light text-white/90">Transforman</span> la Minería
           </h1>
           
-          <p
-            ref={subtitleRef}
-            className="mt-8 max-w-xl font-sans text-lg md:text-xl text-white/70 leading-relaxed opacity-0"
-          >
-            Un viaje profundo a la innovación, el impacto real y las voces que están 
-            redefiniendo el futuro de la industria. Únete a la comunidad líder en innovación minera.
-          </p>
+
 
           <div ref={formRef} className="relative mt-12 opacity-0">
             {status === 'success' ? (
@@ -152,10 +146,10 @@ export default function Hero() {
               </motion.div>
             ) : (
               <form
-                className="group relative flex max-w-xl items-center"
+                className="group relative flex max-w-xl flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-0"
                 onSubmit={handleSubmit}
               >
-                <div className="relative flex w-full items-center overflow-hidden rounded-full border border-white/20 bg-white/5 p-1 backdrop-blur-xl transition-all duration-500 hover:border-white/40 hover:bg-white/10 focus-within:border-white/60 focus-within:ring-1 focus-within:ring-white/20">
+                <div className="relative flex w-full items-center overflow-hidden rounded-2xl sm:rounded-full border border-white/20 bg-white/5 p-1 backdrop-blur-xl transition-all duration-500 hover:border-white/40 hover:bg-white/10 focus-within:border-white/60 focus-within:ring-1 focus-within:ring-white/20">
                   <input
                     type="email"
                     value={email}
@@ -168,11 +162,19 @@ export default function Hero() {
                   <button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="mr-1 h-12 whitespace-nowrap rounded-full bg-white px-8 font-sans font-bold text-navy transition-all hover:bg-cream hover:scale-[1.02] active:scale-[0.98] shadow-xl disabled:opacity-50 disabled:scale-100"
+                    className="hidden sm:block mr-1 h-12 whitespace-nowrap rounded-full bg-white px-8 font-sans font-bold text-navy transition-all hover:bg-cream hover:scale-[1.02] active:scale-[0.98] shadow-xl disabled:opacity-50 disabled:scale-100"
                   >
                     {status === 'submitting' ? 'Enviando...' : 'Únete gratis'}
                   </button>
                 </div>
+                
+                <button
+                  type="submit"
+                  disabled={status === 'submitting'}
+                  className="sm:hidden w-full h-14 rounded-2xl bg-white font-sans font-bold text-navy transition-all hover:bg-cream active:scale-[0.98] shadow-xl disabled:opacity-50"
+                >
+                  {status === 'submitting' ? 'Enviando...' : 'Únete gratis'}
+                </button>
                 
                 {/* Subtle glow effect behind the form */}
                 <div className="absolute -inset-1 z-[-1] rounded-full bg-white/5 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />

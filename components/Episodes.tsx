@@ -94,14 +94,15 @@ function EpisodeCard({ episode }: { episode: { number: string; title: string; de
       {/* Background Gradient for Premium Feel */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
 
-      {/* Episode Image - Updated Ratio for Desktop (md:w-[40%]) */}
-      <div className="relative aspect-square md:aspect-auto md:w-[40%] overflow-hidden">
-        <div ref={imageRef} className="h-full w-full">
+      {/* Episode Image - Updated Ratio for better visibility (md:w-[45%]) */}
+      <div className="relative aspect-[4/5] md:aspect-auto md:w-[45%] overflow-hidden">
+        <div ref={imageRef} className="relative h-full w-full">
           <Image
             src={episode.image}
             alt={episode.title}
             fill
-            className="object-cover opacity-85 transition-opacity duration-500 group-hover:opacity-100"
+            sizes="(max-width: 768px) 100vw, 45vw"
+            className="object-cover object-top opacity-85 transition-opacity duration-500 group-hover:opacity-100"
           />
         </div>
         
