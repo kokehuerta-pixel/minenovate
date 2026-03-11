@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-navy px-8 py-12 md:px-16 lg:px-24 border-t border-white/10">
+    <footer className="bg-navy px-8 py-12 md:px-16 lg:px-24">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
         <div className="font-outfit text-2xl font-bold tracking-tight text-white">
           Minenovate

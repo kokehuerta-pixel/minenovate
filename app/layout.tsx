@@ -25,8 +25,43 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Minenovate | Podcast & Comunidad',
-  description: 'Explorando las historias, tecnologías y el futuro que transforman la minería global.',
+  title: 'Minenovate | Podcast & Comunidad de Innovación Minera',
+  description: 'Explorando las historias, tecnologías y el futuro que transforman la minería global a través de conversaciones con líderes de la industria.',
+  keywords: ['minería', 'innovación', 'podcast', 'tecnología', 'Chile', 'sostenibilidad', 'futuro'],
+  authors: [{ name: 'Minenovate Team' }],
+  creator: 'Minenovate',
+  publisher: 'Minenovate',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: 'Minenovate | Podcast & Comunidad',
+    description: 'Explorando las historias y tecnologías que transforman la minería global.',
+    url: 'https://minenovate.cl',
+    siteName: 'Minenovate',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Minenovate Podcast',
+      },
+    ],
+    locale: 'es_CL',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Minenovate | Podcast & Comunidad',
+    description: 'Historias y tecnologías que transforman la minería global.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
